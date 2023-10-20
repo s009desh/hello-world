@@ -20,7 +20,7 @@ jobs:
       run: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
 
     - name: Build the Docker image
-      run: docker build -t flaskapp .
+      run: docker build -t s009/flask-app:latestflaskapp .
 
     - name: Push to Dockerhub
       run: docker push s009/flask-app:latest
