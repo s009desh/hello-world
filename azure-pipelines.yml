@@ -12,8 +12,7 @@ steps:
 - script: |
     wget https://services.gradle.org/distributions/gradle-8.0-bin.zip
     unzip -d . gradle-8.0-bin.zip
+    ./gradle-8.0/bin/gradle --version
   displayName: Download Gradle 8.0
 
-- script: |
-    ./gradle-8.0/bin/gradle bundleRelease
-  displayName: Build Bundle with Gradle 8.0
+
