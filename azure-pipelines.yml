@@ -2,7 +2,6 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-
 trigger:
 - main
 
@@ -10,6 +9,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: |
+    wget https://services.gradle.org/distributions/gradle-8.0-bin.zip
+    unzip -d . gradle-8.0-bin.zip
+  displayName: Download Gradle 8.0
 
+- script: |
+    ./gradle-8.0/bin/gradle bundleRelease
+  displayName: Build Bundle with Gradle 8.0
